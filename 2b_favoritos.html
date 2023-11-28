@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/formulario.css">
+  <link rel="stylesheet" href="PHP/3bfavoritos.php">
+  <title>+Favoritos</title>
+</head>
+
+<body>
+  <header id="header" class="main" style="opacity: 1;">
+    <nav class="topnav">
+      <a href="1b_series.html">Series</a>
+      <a href="1b_filme.html">Filmes</a>
+      <a href="1b_home.html">Home</a>
+      <a href="1b_contato.html">Ajuda</a>
+      <a href="2b_Atores.html">Atores</a>
+      <a href="2b_Series.html">+Series</a>
+      <a href="2b_filmes.html">+Filme</a>
+      <a href="2b_favoritos.html">+Favoritos</a>
+      <a href="4b_planos.html" style="float: right;">Planos</a>
+      <a href="1b_quemsomos.html" style="float: right;">Quem Somos</a>
+      <a href="2b_Usuario.html" style="float: right;">Entrar/Cadastrar</a>
+      <a href="#" style="float: right;">
+        <form action="" method="post">
+          <label for="">Pesquisar</label>
+          <input type="text" name="" id="" placeholder="O que Deseja ver?" maxlength="30">
+          <select name="" id="">
+            <option selected></option>
+            <option value="filmes">Filmes</option>
+            <option value="series">Series</option>
+          </select>
+        </form>
+      </a>
+    </nav>
+  </header>
+  <div class="titulo">
+    <h1>Meus Favoritos</h1>
+  </div>
+  <div class="container mt-3">
+
+    <form class="row g-3 centerForm" action="3bfavoritos.php" method="post" onsubmit="return validarCampo()">
+      <div class="quadro">
+        <label for="">
+          <h3>Para adicionar um filme ou uma series, basta copiar o codigo logo abaixo do titulo</h3>
+        </label>
+      </div>
+      <div class="col-12">
+        <label for="codigo" class="form-label">Codigo</label>
+        <input type="text" id="codigo" class="form-control" name="codigo" min="4" max="500"  placeholder="Digite o codigo do Filme/serie" required>
+        <span class="mensagem-erro" data-erro></span>
+      </div>
+
+      <input type="hidden" name="acao" value="adicionar">
+      <button type="submit" class="btn btn-primary">Adicionar</button>
+      
+      <input type="hidden" name="acao" value="editar">
+      <button type="submit" class="btn btn-primary">Editar</button>
+      
+      <input type="hidden" name="acao" value="excluir">
+      <button type="submit" class="btn btn-primary">Excluir</button>
+      
+    </form>
+  </div>
+
+
+
+
+</div>
+
+</body>
+
+</html>

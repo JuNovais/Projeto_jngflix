@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/formulario.css">
+  <link rel="stylesheet" href="PHP/3busuario.php">
+  <title> +Usuario</title>
+  <!-- cadastrar usuario Jussaraaaa-->
+</head>
+
+<body>
+  <header id="header" class="main" style="opacity: 1;">
+    <nav class="topnav">
+      <a href="1b_series.html">Series</a>
+      <a href="1b_filme.html">Filmes</a>
+      <a href="1b_home.html">Home</a>
+      <a href="1b_contato.html">Ajuda</a>
+      <a href="2b_Atores.html">Atores</a>
+      <a href="2b_Series.html">+Series</a>
+      <a href="2b_filmes.html">+Filme</a>
+      <a href="2b_favoritos.html">+Favoritos</a>
+      <a href="4b_planos.html" style="float: right;">Planos</a>
+      <a href="1b_quemsomos.html" style="float: right;">Quem Somos</a>
+      <a href="2b_Usuario.html" style="float: right;">Entrar/Cadastrar</a>
+      <a href="#" style="float: right;">
+        <form action="" method="post">
+          <label for="">Pesquisar</label>
+          <input type="text" name="" id="" placeholder="O que Deseja ver?" maxlength="30">
+          <select name="" id="">
+            <option selected></option>
+            <option value="filmes">Filmes</option>
+            <option value="series">Series</option>
+          </select>
+        </form>
+      </a>
+    </nav>
+  </header>
+  <div class="titulo"><h1>CADASTRAR USUARIO</h1></div>
+  
+  
+  <div class="container mt-2" class="form">
+    <form class="row g-3 centerForm"method="POST" action="PHP/3busuario.php">
+
+      <div class="col-12">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" id="nome" class="form-control" name="nome" placeholder="Digite o Nome completo" required oninput="validarNome(this)">
+        <span class="mensagem-erro" data-erro></span>
+    </div>
+    
+    
+    
+
+      <div class="col-12">
+        <label for="cpf" class="form-label">CPF</label>
+        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF" pattern="[0-9]{11}" required maxlength="11">
+        <span id="cpfError" style="color: red;"></span>
+      </div>
+      
+      <script>
+        const cpfInput = document.getElementById("cpf");
+        const cpfError = document.getElementById("cpfError");
+      
+        cpfInput.addEventListener("input", function () {
+          const cpf = cpfInput.value;
+          const cpfPattern = /^[0-9]{11}$/;
+      
+          if (!cpfPattern.test(cpf)) {
+            cpfError.textContent = "CPF inválido. Deve conter exatamente 11 números.";
+          } else {
+            cpfError.textContent = "";
+          }
+        });
+      </script>
+      
+
+      <div class="col-12">
+        <label for="datanasc" class="form-label">Data de Nascimento</label>
+        <input type="date" id="nome" class="form-control" name="data" required>
+      </div>
+
+      <div class="col-12">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Digite o seu email" required>
+        <span id="emailError" style="color: red;"></span>
+      </div>
+      
+      <script>
+        const emailInput = document.getElementById("email");
+        const emailError = document.getElementById("emailError");
+      
+        emailInput.addEventListener("input", function () {
+          const email = emailInput.value;
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      
+          if (!emailPattern.test(email)) {
+            emailInput.setCustomValidity("Formato de email inválido. Use algo como 'email123@gmail.com'.");
+          } else {
+            emailInput.setCustomValidity("");
+          }
+        });
+      </script>
+
+      <div class="col-12">
+        <label for="senha" class="form-label">Senha</label>
+        <input type="password" class="form-control" id="senha" minlength="6" name="senha" maxlength="20"  placeholder="Digite o sua senha"  required>
+        
+      </div>
+      <div id="mensagemSenha" style="display: none;"></div>
+    
+      
+      <div class="col-12">
+        <label for="endereco" class="form-label">Endereço</label>
+        <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite seu Endereço" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="Estado" class="form-label">Estado</label>
+        <select id="inputState" class="form-select">
+          <option selected>Selecione</option>
+          <option value="AC">Acre</option>
+          <option value="AL">Alagoas</option>
+          <option value="AP">Amapá</option>
+          <option value="AM">Amazonas</option>
+          <option value="BA">Bahia</option>
+          <option value="CE">Ceará</option>
+          <option value="DF">Distrito Federal</option>
+          <option value="ES">Espírito Santo</option>
+          <option value="GO">Goiás</option>
+          <option value="MA">Maranhão</option>
+          <option value="MT">Mato Grosso</option>
+          <option value="MS">Mato Grosso do Sul</option>
+          <option value="MG">Minas Gerais</option>
+          <option value="PA">Pará</option>
+          <option value="PB">Paraíba</option>
+          <option value="PR">Paraná</option>
+          <option value="PE">Pernambuco</option>
+          <option value="PI">Piauí</option>
+          <option value="RJ">Rio de Janeiro</option>
+          <option value="RN">Rio Grande do Norte</option>
+          <option value="RS">Rio Grande do Sul</option>
+          <option value="RO">Rondônia</option>
+          <option value="RR">Roraima</option>
+          <option value="SC">Santa Catarina</option>
+          <option value="SP">São Paulo</option>
+          <option value="SE">Sergipe</option>
+          <option value="TO">Tocantins</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputCity" class="form-label">Cidade</label>
+        <input type="text" class="form-control" name="cidade" id="inputCity" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Sexo</label>
+        <select id="inputState" class="form-select">
+          <option selected>Selecione</option>
+          <option>Feminino</option>
+          <option>Masculino</option>
+          <option>Prefiro não informar</option>
+          <option>Outros</option>
+        </select>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" required>
+          <label for="inputState" class="form-label">Aceito todos os termos</label>
+        </div>
+      </div>
+
+      <a href="4b_cartao.html"</a>
+        <button type="submit" class="btn btn-primary">Proximo</button>
+      </a>
+    </form>
+  </div>
+  <script src="js/Jussara.js"></script>
+</body>
+
+</html>

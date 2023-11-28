@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="CSS/formulario.css">
+  <title>+Usuario</title>
+</head>
+
+<body>
+  <header id="header" class="main" style="opacity: 1;">
+    <nav class="topnav">
+      <a href="1b_series.html">Series</a>
+      <a href="1b_filme.html">Filmes</a>
+      <a href="1b_home.html">Home</a>
+      <a href="1b_contato.html">Ajuda</a>
+      <a href="2b_Atores.html">Atores</a>
+      <a href="2b_Series.html">+Series</a>
+      <a href="2b_filmes.html">+Filme</a>
+      <a href="2b_favoritos.html">+Favoritos</a>
+      <a href="4b_planos.html" style="float: right;">Planos</a>
+      <a href="1b_quemsomos.html" style="float: right;">Quem Somos</a>
+      <a href="2b_Usuario.html" style="float: right;">Entrar/Cadastrar</a>
+      <a href="#" style="float: right;">
+        <form action="" method="post">
+          <label for="">Pesquisar</label>
+          <input type="text" name="" id="" placeholder="O que Deseja ver?" maxlength="30">
+          <select name="" id="">
+            <option selected></option>
+            <option value="filmes">Filmes</option>
+            <option value="series">Series</option>
+          </select>
+        </form>
+      </a>
+    </nav>
+  </header>
+  <div class="titulo">
+    <h1>Adicionar um Filme</h1>
+  </div>
+  <div class="container mt-3">
+    <form class="row g-3 centerForm" onsubmit="return validarFormulario()">
+      <div class="col-12">
+        <label for="nome" class="form-label">Nome do Filme</label>
+        <input type="text" id="nome" class="form-control" name="nome" required>
+        <span class="mensagem-erro" data-erro></span>
+      </div>
+      <div class="col-12">
+        <div class="col-md-6">
+          <label for="inputState" class="form-label">Atores presentes</label>
+          <select id="inputState" class="form-select" required>
+            <option selected>Selecione</option>
+            <option>will smith</option>
+            <option>Aventura</option>
+            <option>Cinema de Arte</option>
+            <option>Comedia</option>
+            <option>Documentario</option>
+            <option>Outros</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12">
+        <label for="inputPassword4" class="form-label">Link do Arquivo</label>
+        <input type="text" class="form-control" id="text" required>
+      </div>
+      <div class="col-md-6">
+        <label for="inputState" class="form-label">Categoria</label>
+        <select id="inputState" class="form-select" required>
+          <option selected>Selecione</option>
+          <option>Ação</option>
+          <option>Aventura</option>
+          <option>Cinema de Arte</option>
+          <option>Comedia</option>
+          <option>Documentario</option>
+          <option>Outros</option>
+        </select>
+      </div>
+
+      <div class="col-md-6">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" required>
+          <label class="form-check-label" for="gridCheck">Passar todos os direitos ao site</label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function validarFormulario() {
+      var nome = document.getElementById('nome').value;
+      var inputEmail4 = document.getElementById('inputEmail4').value;
+      var inputPassword4 = document.getElementById('inputPassword4').value;
+      var inputState = document.getElementById('inputState').value;
+      var gridCheck = document.getElementById('gridCheck').checked;
+
+      if (nome === '') {
+        exibirErro('nome', 'O campo Nome do Filme é obrigatório');
+        return false;
+      }
+
+      if (inputEmail4 === '') {
+        exibirErro('inputEmail4', 'O campo Atores Presentes é obrigatório');
+        return false;
+      }
+
+      if (inputPassword4 === '') {
+        exibirErro('inputPassword4', 'O campo Link do Arquivo é obrigatório');
+        return false;
+      }
+
+      if (inputState === 'Selecione') {
+        exibirErro('inputState', 'Selecione uma Categoria');
+        return false;
+      }
+
+      if (!gridCheck) {
+        exibirErro('gridCheck', 'Você deve concordar com os termos');
+        return false;
+      }
+      return true;
+    }
+
+    function exibirErro(campo, mensagem) {
+      var spanErro = document.querySelector('[data-erro="' + campo + '"]');
+      spanErro.textContent = mensagem;
+      spanErro.style.color = 'red';
+    }
+  </script>
+</body>
+
+</html>
